@@ -1,0 +1,37 @@
+{% extends "usuario_crud_base.html" %}
+{% block titulo %}Editar Usuarios{% endblock %}
+
+{% block contenido1%}Menu Editar Usuario para Id : {{usuario_cr.id}}{%endblock%}
+
+{% block contenido2%}
+
+
+       <div class="cuerpo_formulario">
+
+        <form action="/grabare/{{usuario_cr.id}}" method="post" onsubmit="return confirm('Desea grabar la modificacions?');">
+            <input type="hidden" name="which_form" value="editar">
+            <div>
+              <div><label for="nombre_usuario">Nombre del Usuario :</label></div>
+              <div><input type="text" name="nombre_usuario" id="nombre_usuario" value="{{usuario_cr.first_name}}"></div>
+            </div>
+
+            <div>
+                <div><label for="apellido_usuario">Apellido del Usuario :</label></div>
+                <div><input type="text" name="apellido_usuario" id="apellido_usuario" value="{{usuario_cr.last_name}}"></div>
+            </div>
+
+            <div>
+                <div><label for="email_usuario">Email del Usuario :</label></div>
+                <div><input type="text" name="email_usuario" id="email_usuario" value="{{usuario_cr.email}}"></div>
+            </div>
+
+
+            <div class="divboton">
+                <button type="submmit">Actualizar</button>
+            </div>
+          </form>
+           </div>
+        <div class="opciones">
+           <div><a href="/limpiar">Regresar</a></div>
+        </div>
+{%endblock%}
